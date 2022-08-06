@@ -54,6 +54,10 @@ jobs:
         pre-commit run --all-files
     - name: Build assets
       run: circuitpython-build-bundles --filename_prefix ${{ steps.repo-name.outputs.repo-name }} --library_location .
+    - name: Check Sizes
+      run: |
+        git clone https://github.com/FoamyGuy/CircuitPython_Memory_Tools.git
+        python CircuitPython_Memory_Tools/measure_size.py
     - name: Archive bundles
       uses: actions/upload-artifact@v2
       with:
