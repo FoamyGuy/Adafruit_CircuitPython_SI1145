@@ -93,12 +93,12 @@ jobs:
         run: |
           echo "Running Discotool List"
           discotool
-      - name: Cleanup Bundles
-        run: |
-          echo "Deleting old zips"
-          rm ./*.zip
-          echo "Deleting old jsons"
-          rm ./*.json
+#      - name: Cleanup Bundles
+#        run: |
+#          echo "Deleting old zips"
+#          rm ./*.zip
+#          echo "Deleting old jsons"
+#          rm ./*.json
       - uses: actions/download-artifact@v2
         with:
           name: bundles
@@ -109,3 +109,8 @@ jobs:
           pwd
           echo "Looking for 8.x mpy:"
           ls *8.x-mpy*.zip
+      - name: Check Size on Device
+        run: |
+          git clone https://github.com/FoamyGuy/CircuitPython_Memory_Tools.git
+          cp CircuitPython_Memory_Tools/on_device_ram_check.py ./
+          python -m "from on_device_ram_check import get_ram_size;print(get_ram_size('./adafruit-circuitpython-si1145-8.x-mpy-c9a96fc.zip', b'adafruit_si1145', '/dev/ttyACM0', '/media/pi/CIRCUITPY'))"
