@@ -113,4 +113,4 @@ jobs:
         run: |
           git clone https://github.com/FoamyGuy/CircuitPython_Memory_Tools.git
           cp CircuitPython_Memory_Tools/on_device_ram_check.py ./
-          python -m "from on_device_ram_check import get_ram_size;print(get_ram_size('./adafruit-circuitpython-si1145-8.x-mpy-c9a96fc.zip', b'adafruit_si1145', '/dev/ttyACM0', '/media/pi/CIRCUITPY'))"
+          python3 -c "from on_device_ram_check import get_ram_size;print(get_ram_size('./adafruit-circuitpython-si1145-8.x-mpy-c9a96fc.zip', b'adafruit_si1145', '/dev/ttyACM0', '/media/pi/CIRCUITPY'))"
