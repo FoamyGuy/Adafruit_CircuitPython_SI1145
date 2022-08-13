@@ -107,5 +107,5 @@ jobs:
         run: |
           ls
           pwd
-          echo "Looking for 8.x mpy:
+          echo "Looking for 8.x mpy:"
           ls *8.x-mpy*.zip
