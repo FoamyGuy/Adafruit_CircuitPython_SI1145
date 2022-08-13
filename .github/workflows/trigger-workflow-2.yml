@@ -1,4 +1,8 @@
-name: Build CI
+# SPDX-FileCopyrightText: 2022 Tim, written for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+
+name: On Device Testing
 
 on:
   workflow_run:
@@ -11,10 +15,10 @@ jobs:
     name: On Device Tests
     runs-on: self-hosted
     steps:
-      - name: Find Microcontroller
-        run: |
-          echo "Running Discotool List"
-          discotool
+       - name: Find Microcontroller
+         run: |
+           echo "Running Discotool List"
+           discotool
 
        - uses: actions/download-artifact@v2
          with:
