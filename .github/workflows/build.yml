@@ -93,7 +93,12 @@ jobs:
         run: |
           echo "Running Discotool List"
           discotool
-
+      - name: Cleanup Bundles
+        run: |
+          echo "Deleting old zips"
+          rm ./*.zip
+          echo "Deleting old jsons"
+          rm ./*.json
       - uses: actions/download-artifact@v2
         with:
           name: bundles
@@ -102,4 +107,5 @@ jobs:
         run: |
           ls
           pwd
-          echo $GITHUB_SHA
+          echo "Looking for 8.x mpy:
+          ls *8.x-mpy*.zip
