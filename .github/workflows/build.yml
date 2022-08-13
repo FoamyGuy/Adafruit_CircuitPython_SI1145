@@ -90,4 +90,5 @@ jobs:
     steps:
       - name: Find Microcontroller
         run: |
+          echo "Running Discotool List"
           discotool
