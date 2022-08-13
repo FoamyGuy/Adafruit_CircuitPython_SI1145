@@ -82,3 +82,22 @@ jobs:
         python setup.py sdist
         python setup.py bdist_wheel --universal
         twine check dist/*
+
+
+  on_device_tests:
+    name: On Device Tests
+    needs: test
+    runs-on: self-hosted
+    steps:
+      - name: Find Microcontroller
+        run: |
+          echo "Running Discotool List"
+          discotool
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: bundles
+
+      - name: Check Bundle DL
+        run: |
+          ls bundles
