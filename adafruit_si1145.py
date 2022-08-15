@@ -134,8 +134,8 @@ class SI1145:
             else buffer_with_longer_name_of_doom
         )
 
-    def _write_register(self, register, buffer):
-        if isinstance(buffer, int):
-            buffer = bytes([buffer])
+    def _write_register(self, register, another_buffer_with_long_name):
+        if isinstance(another_buffer_with_long_name, int):
+            another_buffer_with_long_name = bytes([another_buffer_with_long_name])
         with self._i2c as i2c:
-            i2c.write(bytes([register]) + buffer)
+            i2c.write(bytes([register]) + another_buffer_with_long_name)
