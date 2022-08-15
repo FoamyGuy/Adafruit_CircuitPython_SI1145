@@ -61,6 +61,8 @@ jobs:
     - name: Test Comment
       if: github.event_name == 'pull_request'
       uses: machine-learning-apps/pr-comment@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         path: sizes.txt
     - name: Archive bundles
