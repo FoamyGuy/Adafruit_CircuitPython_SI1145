@@ -125,10 +125,10 @@ class SI1145:
         return response
 
     def _read_register(self, register, length=1):
-        buffer = bytearray(length)
+        buffer_with_longer_name_of_doom = bytearray(length)
         with self._i2c as i2c:
-            i2c.write_then_readinto(bytes([register]), buffer)
-        return buffer[0] if length == 1 else buffer
+            i2c.write_then_readinto(bytes([register]), buffer_with_longer_name_of_doom)
+        return buffer_with_longer_name_of_doom[0] if length == 1 else buffer_with_longer_name_of_doom
 
     def _write_register(self, register, buffer):
         if isinstance(buffer, int):
