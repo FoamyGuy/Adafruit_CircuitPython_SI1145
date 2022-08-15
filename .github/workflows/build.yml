@@ -58,6 +58,17 @@ jobs:
       run: |
         git clone https://github.com/FoamyGuy/CircuitPython_Memory_Tools.git
         python CircuitPython_Memory_Tools/measure_size.py
+    - name: Test Comment
+      if: github.event_name == 'pull_request'
+      uses: mshick/add-pr-comment@v1
+      with:
+        message: |
+          **Hello**
+          🌏
+          !
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+        allow-repeats: false # This is the default
     - name: Archive bundles
       uses: actions/upload-artifact@v2
       with:
