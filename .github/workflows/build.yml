@@ -57,18 +57,12 @@ jobs:
     - name: Check Sizes
       run: |
         git clone https://github.com/FoamyGuy/CircuitPython_Memory_Tools.git
-        python CircuitPython_Memory_Tools/measure_size.py
+        python CircuitPython_Memory_Tools/measure_size.py > sizes.txt
     - name: Test Comment
       if: github.event_name == 'pull_request'
-      uses: mshick/add-pr-comment@v1
+      uses: machine-learning-apps/pr-comment@master
       with:
-        message: |
-          **Hello**
-          🌏
-          !
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
-        allow-repeats: false # This is the default
+        path: sizes.txt
     - name: Archive bundles
       uses: actions/upload-artifact@v2
       with:
