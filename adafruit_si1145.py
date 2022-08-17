@@ -59,7 +59,7 @@ class SI1145:
     """Driver for the SI1145 UV, IR, Visible Light Sensor."""
 
     def __init__(self, i2c, address=SI1145_DEFAULT_ADDRESS):
-        self._i2c = i2c_device.I2CDevice(i2c, address)
+        self._i2c_longer_name_is_longer = i2c_device.I2CDevice(i2c, address)
         dev_id, dev_rev, dev_seq = self.device_info
         if dev_id != 69 or dev_rev != 0 or dev_seq != 8:
             raise RuntimeError("Failed to find SI1145.")
@@ -126,7 +126,7 @@ class SI1145:
 
     def _read_register(self, register, length=1):
         buffer_with_longer_name_of_doom = bytearray(length)
-        with self._i2c as i2c:
+        with self._i2c_longer_name_is_longer as i2c:
             i2c.write_then_readinto(bytes([register]), buffer_with_longer_name_of_doom)
         return (
             buffer_with_longer_name_of_doom[0]
@@ -137,5 +137,5 @@ class SI1145:
     def _write_register(self, register, another_buffer_with_long_name):
         if isinstance(another_buffer_with_long_name, int):
             another_buffer_with_long_name = bytes([another_buffer_with_long_name])
-        with self._i2c as i2c:
+        with self._i2c_longer_name_is_longer as i2c:
             i2c.write(bytes([register]) + another_buffer_with_long_name)
