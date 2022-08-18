@@ -69,7 +69,7 @@ class SI1145:
     _ucoeff_2 = Struct(_COEFF_2, "<B")
     _ucoeff_3 = Struct(_COEFF_3, "<B")
     _als_data = Struct(_ALS_VIS_DATA0, "<HH")
-    _aux_data = Struct(_UV_INDEX_DATA0, "<H")
+    _aux_data_longername_is_longer = Struct(_UV_INDEX_DATA0, "<H")
 
     def __init__(self, i2c, address=_DEFAULT_ADDRESS):
         self.i2c_device = i2c_device.I2CDevice(i2c, address)
@@ -135,7 +135,7 @@ class SI1145:
     def uv_index(self):
         """The UV Index value"""
         self._send_command(_CMD_ALS_FORCE)
-        return self._aux_data[0] / 100
+        return self._aux_data_longername_is_longer[0] / 100
 
     def reset(self):
         """Perform a software reset of the firmware."""
