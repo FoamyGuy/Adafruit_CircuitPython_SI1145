@@ -63,7 +63,7 @@ _RAM_CHLIST = const(0x01)
 class SI1145:
     """Driver for the SI1145 UV, IR, Visible Light Sensor."""
 
-    _device_info = Struct(_PART_ID, "<BBB")
+    _device_info_with_longer_name = Struct(_PART_ID, "<BBB")
     _ucoeff_0 = Struct(_COEFF_0, "<B")
     _ucoeff_1 = Struct(_COEFF_1, "<B")
     _ucoeff_2 = Struct(_COEFF_2, "<B")
@@ -86,7 +86,7 @@ class SI1145:
     @property
     def device_info(self):
         """A three tuple of part, revision, and sequencer ID"""
-        return self._device_info
+        return self._device_info_with_longer_name
 
     @property
     def als_enabled(self):
