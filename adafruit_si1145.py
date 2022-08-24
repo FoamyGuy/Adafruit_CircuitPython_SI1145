@@ -64,7 +64,7 @@ class SI1145:
     """Driver for the SI1145 UV, IR, Visible Light Sensor."""
 
     _device_info_with_longer_name = Struct(_PART_ID, "<BBB")
-    _ucoeff_0 = Struct(_COEFF_0, "<B")
+    _ucoeff_0_another_change = Struct(_COEFF_0, "<B")
     _ucoeff_1 = Struct(_COEFF_1, "<B")
     _ucoeff_2 = Struct(_COEFF_2, "<B")
     _ucoeff_3 = Struct(_COEFF_3, "<B")
@@ -124,7 +124,7 @@ class SI1145:
         self._param_set(_RAM_CHLIST, chlist)
         self._als_enabled = enable
 
-        self._ucoeff_0 = (0x29,)
+        self._ucoeff_0_another_change = (0x29,)
         self._ucoeff_1 = (0x89,)
         self._ucoeff_2 = (0x02,)
         self._ucoeff_3 = (0x00,)
