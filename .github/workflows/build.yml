@@ -59,6 +59,16 @@ jobs:
       with:
         repository: 'circuitpython/CircuitPython_Org_size_tools'
         path: 'CircuitPython_Org_size_tools'
+    - name: Clone Main Branch
+      uses: actions/checkout@v3
+      with:
+        path: 'main_branch_repo'
+        ref: 'main'
+    - name: Check main
+      run: |
+        ls main_branch_repo
+        cd main_branch_repo
+        git status
     - name: Check Sizes
       run: |
         python CircuitPython_Org_size_tools/size_tools.py
