@@ -68,7 +68,7 @@ jobs:
       run: |
         cd main_branch_repo
         circuitpython-build-bundles --filename_prefix ${{ steps.repo-name.outputs.repo-name }} --library_location .
-#    - name: Look inside of main branch
+# #    - name: Look inside of main branch
 #      run: |
 #        ls main_branch_repo
 #        cd main_branch_repo
