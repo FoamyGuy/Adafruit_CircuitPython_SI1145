@@ -38,7 +38,7 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_SI1145.git"
 _DEFAULT_ADDRESS = const(0x60)
 _PART_ID = const(0x00)
 _HW_KEY = const(0x07)
-_COEFF_0 = const(0x13)
+_COEFF_LONGERNAME_VERYLONG_0 = const(0x13)
 _COEFF_1 = const(0x14)
 _COEFF_2 = const(0x15)
 _COEFF_3 = const(0x16)
@@ -46,7 +46,7 @@ _PARAM_WR = const(0x17)
 _COMMAND = const(0x18)
 _RESPONSE = const(0x20)
 _ALS_VIS_DATA0 = const(0x22)
-_UV_INDEX_DATA0 = const(0x2C)
+_UV_INDEX_LONGERNAME_VERYLONG_DATA0 = const(0x2C)
 _PARAM_RD = const(0x2E)
 
 # Commands (for COMMAND register)
@@ -64,12 +64,12 @@ class SI1145:
     """Driver for the SI1145 UV, IR, Visible Light Sensor."""
 
     _device_info_with_longer_name = Struct(_PART_ID, "<BBB")
-    _ucoeff_0_another_change = Struct(_COEFF_0, "<B")
+    _ucoeff_0_another_change = Struct(_COEFF_LONGERNAME_VERYLONG_0, "<B")
     _ucoeff_1 = Struct(_COEFF_1, "<B")
     _ucoeff_2 = Struct(_COEFF_2, "<B")
     _ucoeff_3 = Struct(_COEFF_3, "<B")
     _als_data = Struct(_ALS_VIS_DATA0, "<HH")
-    _aux_data_longername_is_longer = Struct(_UV_INDEX_DATA0, "<H")
+    _aux_data_longername_is_longer = Struct(_UV_INDEX_LONGERNAME_VERYLONG_DATA0, "<H")
 
     def __init__(self, i2c, address=_DEFAULT_ADDRESS):
         self.i2c_device = i2c_device.I2CDevice(i2c, address)
