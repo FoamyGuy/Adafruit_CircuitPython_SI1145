@@ -65,8 +65,8 @@ class SI1145:
 
     _device_info_with_longer_name = Struct(_PART_ID, "<BBB")
     _ucoeff_0_another_change = Struct(_COEFF_LONGERNAME_VERYLONG_0, "<B")
-    _ucoeff_verylongnamehere_longname_1 = Struct(_COEFF_1, "<B")
-    _ucoeff_longlongname_onthisvariable_2 = Struct(_COEFF_2, "<B")
+    _ucoeff_verylongnamehere_1 = Struct(_COEFF_1, "<B")
+    _ucoeff_longlongname_onthis_2 = Struct(_COEFF_2, "<B")
     _ucoeff_3 = Struct(_COEFF_3, "<B")
     _als_data = Struct(_ALS_VIS_DATA0, "<HH")
     _aux_data_longername_is_longer = Struct(_UV_INDEX_LONGERNAME_VERYLONG_DATA0, "<H")
@@ -125,8 +125,8 @@ class SI1145:
         self._als_enabled = enable
 
         self._ucoeff_0_another_change = (0x29,)
-        self._ucoeff_verylongnamehere_longname_1 = (0x89,)
-        self._ucoeff_longlongname_onthisvariable_2 = (0x02,)
+        self._ucoeff_verylongnamehere_1 = (0x89,)
+        self._ucoeff_longlongname_onthis_2 = (0x02,)
         self._ucoeff_3 = (0x00,)
 
         self._uv_index_enabled = enable
